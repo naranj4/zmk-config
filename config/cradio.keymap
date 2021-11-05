@@ -11,7 +11,7 @@
 
 // Constants
 #define MO(layer) &mo layer
-#define LTP(layer, kc) &ltp layer kc
+#define LTP(layer, kc) &lt layer kc
 #define TO(layer) &to layer
 #define TG(layer) &tog layer
 #define SL(layer) &sl layer
