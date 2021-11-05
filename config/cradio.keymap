@@ -59,16 +59,16 @@
 
 // TMUX
 #define TMUX_PREFIX &kp LC(B)
-#define tm(behavior, name, lb, key) ( \
-    behavior: name { \
+#define tm(NODELABEL, NODE, LABEL, USAGE) \
+    NODELABEL: NODE { \
         compatible = "zmk,behavior-macro"; \
-        label = lb; \
+        label = LABEL; \
         #binding-cells = <0>; \
         tapping-term-ms = <200>; \
         bindings = \
             <TMUX_PREFIX>, \
-            <&kp key>; \
-    })
+            <&kp USAGE>; \
+    };
 
 
 / { 
