@@ -11,7 +11,7 @@
 
 // Constants
 #define MO(layer) &mo layer
-#define LT(layer, kc) &lt layer kc
+#define LTP(layer, kc) &ltp layer kc
 #define TO(layer) &to layer
 #define TG(layer) &tog layer
 #define SL(layer) &sl layer
@@ -37,7 +37,7 @@
 // Custom keycodes 
 #define SL_SYM SL(_SYM)
 #define SL_NAV SL(_NAV)
-#define NUM_SPC LT(_NUM, SPACE)
+#define NUM_SPC LTP(_NUM, SPACE)
 #define TMUX_T LLT(_TMUX, T)
 #define TO_BASE TO(_BASE)
 #define TO_NAV TO(_NAV)
@@ -120,7 +120,7 @@
         /*         <TMUX_PREFIX>, */
         /*         <&kp N>; */
         /* } */
-        tm(tnxt, tmux_next, "TMUX_NEXT" N)
+        tm(tnxt, tmux_next, "TMUX_NEXT", N)
 
         tprv: tmux_prev {
             compatible = "zmk,behavior-macro";
