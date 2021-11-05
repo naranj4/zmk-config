@@ -42,6 +42,7 @@
 #define TO_BASE TO(_BASE)
 #define TO_NAV TO(_NAV)
 #define TO_NPAD TO(_NUMPAD)
+#define TO_KB TO(_KB)
 #define SK_SFT SK(LSHFT)
 #define SCW &scw
 
