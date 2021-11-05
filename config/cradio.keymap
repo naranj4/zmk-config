@@ -72,16 +72,6 @@
 
 
 / { 
-    combos {
-        compatible = "zmk,combos";
-        
-        // combo_rgui {
-        //     timeout-ms = <50>;
-        //     key-positions = <17 18>;
-        //     bindings = <&kp RGUI>;
-        // };
-    };
-
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -119,7 +109,7 @@
             bindings =
                 <TMUX_PREFIX>,
                 <&kp N>;
-        }
+        };
         /* tm(tnxt, tmux_next, "TMUX_NEXT", N) */
 
         tprv: tmux_prev {
@@ -130,7 +120,7 @@
             bindings =
                 <TMUX_PREFIX>,
                 <&kp P>;
-        }
+        };
 
         tlt: tmux_lt {
             compatible = "zmk,behavior-macro";
@@ -140,7 +130,7 @@
             bindings =
                 <TMUX_PREFIX>,
                 <&kp LT>;
-        }
+        };
 
         tgt: tmux_gt {
             compatible = "zmk,behavior-macro";
@@ -150,7 +140,7 @@
             bindings =
                 <TMUX_PREFIX>,
                 <&kp GT>;
-        }
+        };
 
         tnew: tmux_new {
             compatible = "zmk,behavior-macro";
@@ -160,7 +150,7 @@
             bindings =
                 <TMUX_PREFIX>,
                 <&kp C>;
-        }
+        };
 
         tslct: tmux_select {
             compatible = "zmk,behavior-macro";
@@ -170,7 +160,7 @@
             bindings =
                 <TMUX_PREFIX>,
                 <&kp LBKT>;
-        }
+        };
     };
 
     keymap {
