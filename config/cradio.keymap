@@ -111,16 +111,16 @@
             bindings = <SK(LSHFT)>, <&kp CAPS>;
         };
 
-        /* tnxt: tmux_next { */
-        /*     compatible = "zmk,behavior-macro"; */
-        /*     label = "TMUX_NEXT"; */
-        /*     #binding-cells = <0>; */
-        /*     tapping-term-ms = <200>; */
-        /*     bindings = */
-        /*         <TMUX_PREFIX>, */
-        /*         <&kp N>; */
-        /* } */
-        tm(tnxt, tmux_next, "TMUX_NEXT", N)
+        tnxt: tmux_next {
+            compatible = "zmk,behavior-macro";
+            label = "TMUX_NEXT";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings =
+                <TMUX_PREFIX>,
+                <&kp N>;
+        }
+        /* tm(tnxt, tmux_next, "TMUX_NEXT", N) */
 
         tprv: tmux_prev {
             compatible = "zmk,behavior-macro";
