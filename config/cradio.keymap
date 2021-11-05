@@ -65,7 +65,6 @@
         compatible = "zmk,behavior-macro"; \
         label = LABEL; \
         #binding-cells = <0>; \
-        tapping-term-ms = <200>; \
         bindings = \
             <TMUX_PREFIX>, \
             <&kp USAGE>; \
@@ -106,7 +105,6 @@
             compatible = "zmk,behavior-macro";
             label = "TMUX_NEXT";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
             bindings =
                 <TMUX_PREFIX>,
                 <&kp N>;
@@ -117,7 +115,6 @@
             compatible = "zmk,behavior-macro";
             label = "TMUX_PREV";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
             bindings =
                 <TMUX_PREFIX>,
                 <&kp P>;
@@ -127,7 +124,6 @@
             compatible = "zmk,behavior-macro";
             label = "TMUX_LT";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
             bindings =
                 <TMUX_PREFIX>,
                 <&kp LT>;
@@ -137,7 +133,6 @@
             compatible = "zmk,behavior-macro";
             label = "TMUX_GT";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
             bindings =
                 <TMUX_PREFIX>,
                 <&kp GT>;
@@ -147,7 +142,6 @@
             compatible = "zmk,behavior-macro";
             label = "TMUX_NEW";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
             bindings =
                 <TMUX_PREFIX>,
                 <&kp C>;
@@ -157,7 +151,6 @@
             compatible = "zmk,behavior-macro";
             label = "TMUX_SELECT";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
             bindings =
                 <TMUX_PREFIX>,
                 <&kp LBKT>;
