@@ -68,7 +68,7 @@
         bindings = \
             <TMUX_PREFIX>, \
             <&kp USAGE>; \
-    };
+    }
 
 
 / { 
@@ -101,60 +101,13 @@
             bindings = <SK(LSHFT)>, <&kp CAPS>;
         };
 
-        tnxt: tmux_next {
-            compatible = "zmk,behavior-macro";
-            label = "TMUX_NEXT";
-            #binding-cells = <0>;
-            bindings =
-                <TMUX_PREFIX>,
-                <&kp N>;
-        };
-        /* tm(tnxt, tmux_next, "TMUX_NEXT", N) */
-
-        tprv: tmux_prev {
-            compatible = "zmk,behavior-macro";
-            label = "TMUX_PREV";
-            #binding-cells = <0>;
-            bindings =
-                <TMUX_PREFIX>,
-                <&kp P>;
-        };
-
-        tlt: tmux_lt {
-            compatible = "zmk,behavior-macro";
-            label = "TMUX_LT";
-            #binding-cells = <0>;
-            bindings =
-                <TMUX_PREFIX>,
-                <&kp LT>;
-        };
-
-        tgt: tmux_gt {
-            compatible = "zmk,behavior-macro";
-            label = "TMUX_GT";
-            #binding-cells = <0>;
-            bindings =
-                <TMUX_PREFIX>,
-                <&kp GT>;
-        };
-
-        tnew: tmux_new {
-            compatible = "zmk,behavior-macro";
-            label = "TMUX_NEW";
-            #binding-cells = <0>;
-            bindings =
-                <TMUX_PREFIX>,
-                <&kp C>;
-        };
-
-        tslct: tmux_select {
-            compatible = "zmk,behavior-macro";
-            label = "TMUX_SELECT";
-            #binding-cells = <0>;
-            bindings =
-                <TMUX_PREFIX>,
-                <&kp LBKT>;
-        };
+        // TMUX macro definitions
+        tm(tnxt, tmux_next, "TMUX_NEXT", N);
+        tm(tprv, tmux_prev, "TMUX_PREV", P);
+        tm(tlt, tmux_lt, "TMUX_LT", LT);
+        tm(tgt, tmux_gt, "TMUX_GT", GT);
+        tm(tnew, tmux_new, "TMUX_NEW", C);
+        tm(tslct, tmux_select, "TMUX_SELECT", LBKT);
     };
 
     keymap {
