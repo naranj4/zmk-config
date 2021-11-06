@@ -15,7 +15,7 @@
 #define TO(layer) &to layer
 #define TG(layer) &tog layer
 #define SL(layer) &sl layer
-#define SK(mod) &sk mod
+#define SK(mod) &skq mod
 #define _________ &trans
 #define XXXXXXXXX &none
 
@@ -73,6 +73,15 @@
 
 / { 
     behaviors {
+        skq: sticky_key_quick_release {
+            compatible = "zmk,behavior-sticky-key";
+            label = "STICKY_KEY_QUICK_RELEASE";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <750>;
+            quick-release;
+        };
+
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
