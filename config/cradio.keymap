@@ -19,6 +19,15 @@
 #define _________ &trans
 #define XXXXXXXXX &none
 
+#define BOOT &bootloader
+#define MNEXT &kp C_NEXT
+#define MPREV &kp C_PREV
+#define MPLAY &kp C_PP
+#define VOLU &kp C_VOL_UP
+#define VOLD &kp C_VOL_DN
+#define BRIU &kp C_BRI_UP
+#define BRID &kp C_BRI_DN
+
 
 // Helpers
 #define LLT(layer, kc) &llt layer kc
@@ -117,6 +126,14 @@
         tm(tgt, tmux_gt, "TMUX_GT", GT);
         tm(tnew, tmux_new, "TMUX_NEW", C);
         tm(tslct, tmux_select, "TMUX_SELECT", LBKT);
+        tm(tleft, tmux_left, "TMUX_LEFT", LEFT);
+        tm(tdown, tmux_down, "TMUX_DOWN", DOWN);
+        tm(tup, tmux_up, "TMUX_UP", UP);
+        tm(trght, tmux_right, "TMUX_RIGHT", RIGHT);
+        tm(tzm, tmux_zoom, "TMUX_ZOOM", Z);
+        tm(tdtch, tmux_detach, "TMUX_DETACH", D);
+        tm(tcmd, tmux_command, "TMUX_COMMAND", COLON);
+        tm(trnm, tmux_rename, "TMUX_RENAME", COMMA);
     };
 
     keymap {
@@ -182,14 +199,13 @@
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
         >; };
 
-        // TODO: finish the remaining layers
 		tmux_layer { bindings = <
           //┌─────────┬─────────┬─────────┬─────────┬─────────┐                            ┌─────────┬─────────┬─────────┬─────────┬─────────┐
              XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX _________                              &tprv     &tlt      &tgt      &tnxt     XXXXXXXXX
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
-             XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
+             XXXXXXXXX XXXXXXXXX &tdtch    XXXXXXXXX XXXXXXXXX                              &tleft    &tdown    &tup      &trght    &tcmd
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
-             XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              &tnew     &tslct    XXXXXXXXX XXXXXXXXX XXXXXXXXX
+             &tzm      XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              &tnew     &tslct    &trnm     XXXXXXXXX XXXXXXXXX
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
                                                  XXXXXXXXX     XXXXXXXXX          XXXXXXXXX     XXXXXXXXX
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
@@ -197,11 +213,11 @@
 
 		kb_layer { bindings = <
           //┌─────────┬─────────┬─────────┬─────────┬─────────┐                            ┌─────────┬─────────┬─────────┬─────────┬─────────┐
-             XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
+             BOOT      XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              BRID      BRIU      XXXXXXXXX XXXXXXXXX XXXXXXXXX
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
-             XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
+             XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              MPREV     MPLAY     XXXXXXXXX MNEXT     XXXXXXXXX
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
-             XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
+             &reset    XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              VOLD      VOLU      XXXXXXXXX XXXXXXXXX XXXXXXXXX
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
                                                  XXXXXXXXX     TO_BASE            XXXXXXXXX     XXXXXXXXX
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
