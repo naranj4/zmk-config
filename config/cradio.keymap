@@ -20,6 +20,9 @@
 #define XXXXXXXXX &none
 
 #define BOOT &bootloader
+#define BTCLR &bt BT_CLR
+#define BTNXT &bt BT_NXT
+#define BTPRV &bt BT_PRV
 #define MNEXT &kp C_NEXT
 #define MPREV &kp C_PREV
 #define MPLAY &kp C_PP
@@ -51,7 +54,7 @@
 #define TO_BASE TO(_BASE)
 #define TO_NAV TO(_NAV)
 #define TO_NPAD TO(_NUMPAD)
-#define TO_KB TO(_KB)
+#define MO_KB MO(_KB)
 #define SK_SFT SK(LSHFT)
 #define SCW &scw
 
@@ -169,7 +172,7 @@
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              &kp LCTRL &kp LSHFT &kp LALT  &kp LGUI  &kp RET                                &kp PIPE  &kp LBKT  &kp RBKT  &kp MINUS &kp BSPC
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
-             TO_KB     XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              XXXXXXXXX XXXXXXXXX _________ _________ _________
+             XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
                                                  TO_NAV        TO_BASE            _________     TO_NPAD
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
@@ -181,9 +184,9 @@
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                 &kp N6    &kp N7    &kp N8    &kp N9    &kp N0   
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
-             TO_KB     XXXXXXXXX &kp MINUS &kp PLUS  &kp EQUAL                              XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
+             XXXXXXXXX XXXXXXXXX &kp MINUS &kp PLUS  &kp EQUAL                              XXXXXXXXX XXXXXXXXX _________ _________ _________
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
-                                                 _________     _________          _________     _________
+                                                 _________     MO_KB              _________     _________
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
         >; };
 		
@@ -193,7 +196,7 @@
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              &kp RET   XXXXXXXXX &kp MINUS &kp PLUS  XXXXXXXXX                              &kp EQUAL &kp N4    &kp N5    &kp N6    &kp N0
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
-             TO_KB     XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              &kp STAR  &kp N1    &kp N2    &kp N3    _________
+             XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              &kp STAR  &kp N1    &kp N2    &kp N3    _________
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
                                                  _________     TO_BASE            _________     XXXXXXXXX
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
@@ -213,9 +216,9 @@
 
 		kb_layer { bindings = <
           //┌─────────┬─────────┬─────────┬─────────┬─────────┐                            ┌─────────┬─────────┬─────────┬─────────┬─────────┐
-             BOOT      XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              BRID      BRIU      XXXXXXXXX XXXXXXXXX XXXXXXXXX
+             BOOT      XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              BRID      BRIU      XXXXXXXXX XXXXXXXXX BTCLR
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
-             XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              MPREV     MPLAY     XXXXXXXXX MNEXT     XXXXXXXXX
+             XXXXXXXXX XXXXXXXXX BTPRV     BTNXT     XXXXXXXXX                              MPREV     MPLAY     XXXXXXXXX MNEXT     XXXXXXXXX
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              &reset    XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              VOLD      VOLU      XXXXXXXXX XXXXXXXXX XXXXXXXXX
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
