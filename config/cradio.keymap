@@ -55,6 +55,7 @@
 #define TO_NAV TO(_NAV)
 #define TO_NPAD TO(_NUMPAD)
 #define MO_KB MO(_KB)
+#define SK_SFT SK(LSHFT)
 #define MY_SFT &mysft LSHFT A
 
 
@@ -156,7 +157,7 @@
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              &kp Z     &kp X     &kp C     &kp V     &kp B                                  &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
-                                                 SL_NAV        MY_SFT             NUM_SPC       SL_SYM
+                                                 SL_NAV        SK_SFT             NUM_SPC       SL_SYM
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
         >; };
 
