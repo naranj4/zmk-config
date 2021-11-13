@@ -55,7 +55,7 @@
 #define TO_NAV TO(_NAV)
 #define TO_NPAD TO(_NUMPAD)
 #define MO_KB MO(_KB)
-#define SK_SFT SK(LSHFT)
+#define MY_SFT &mysft LSHFT A
 
 
 // Homerow mods
@@ -122,10 +122,10 @@
         mysft: my_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "MY_SHIFT";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <&kp LSHFT>, <&scw>;
+            bindings = <&kp>, <&scw>;
         };
 
         // TMUX macro definitions
@@ -156,7 +156,7 @@
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              &kp Z     &kp X     &kp C     &kp V     &kp B                                  &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
-                                                 SL_NAV        &mysft             NUM_SPC       SL_SYM
+                                                 SL_NAV        MY_SFT             NUM_SPC       SL_SYM
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
         >; };
 
