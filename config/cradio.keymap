@@ -26,10 +26,10 @@
 #define MNEXT &kp C_NEXT
 #define MPREV &kp C_PREV
 #define MPLAY &kp C_PP
-#define VOLU &kp C_VOL_UP
-#define VOLD &kp C_VOL_DN
-#define BRIU &kp C_BRI_UP
-#define BRID &kp C_BRI_DN
+#define MVOLU &kp C_VOL_UP
+#define MVOLD &kp C_VOL_DN
+#define DBRIU &kp C_BRI_UP
+#define DBRID &kp C_BRI_DN
 
 
 // Helpers
@@ -121,8 +121,8 @@
 
         mysft: my_shift {
             compatible = "zmk,behavior-hold-tap";
-            label = "LETTER_LAYER_TAPS";
-            #binding-cells = <1>;
+            label = "MY_SHIFT";
+            #binding-cells = <0>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
             bindings = <&kp LSHFT>, <&scw>;
@@ -156,7 +156,7 @@
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              &kp Z     &kp X     &kp C     &kp V     &kp B                                  &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
-                                                 SL_NAV        SCW                NUM_SPC       SL_SYM
+                                                 SL_NAV        &mysft             NUM_SPC       SL_SYM
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
         >; };
 
@@ -222,11 +222,11 @@
 
 		kb_layer { bindings = <
           //┌─────────┬─────────┬─────────┬─────────┬─────────┐                            ┌─────────┬─────────┬─────────┬─────────┬─────────┐
-             BOOT      XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              BRID      BRIU      XXXXXXXXX XXXXXXXXX BTCLR
+             BOOT      XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              DBRID     DBRIU     XXXXXXXXX XXXXXXXXX BTCLR
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              XXXXXXXXX XXXXXXXXX BTPRV     BTNXT     XXXXXXXXX                              MPREV     MPLAY     XXXXXXXXX MNEXT     XXXXXXXXX
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
-             &reset    XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              VOLD      VOLU      XXXXXXXXX XXXXXXXXX XXXXXXXXX
+             &reset    XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              MVOLD     MVOLU     XXXXXXXXX XXXXXXXXX XXXXXXXXX
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
                                                  XXXXXXXXX     TO_BASE            XXXXXXXXX     XXXXXXXXX
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
