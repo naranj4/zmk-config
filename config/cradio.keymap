@@ -56,7 +56,6 @@
 #define TO_NPAD TO(_NUMPAD)
 #define MO_KB MO(_KB)
 #define SK_SFT SK(LSHFT)
-#define SCW &scw
 
 
 // Homerow mods
@@ -118,6 +117,15 @@
             #binding-cells = <0>;
             tapping_term_ms = <200>;
             bindings = <SK(LSHFT)>, <&kp CAPS>;
+        };
+
+        mysft: my_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LETTER_LAYER_TAPS";
+            #binding-cells = <1>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+            bindings = <&kp LSHFT>, <&scw>;
         };
 
         // TMUX macro definitions
