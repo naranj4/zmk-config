@@ -78,8 +78,8 @@
         compatible = "zmk,behavior-macro"; \
         label = LABEL; \
         #binding-cells = <0>; \
-        wait-ms = <50>;
-        tap-ms = <40>;
+        wait-ms = <50>; \
+        tap-ms = <40>; \
         bindings = <TMUX_PREFIX &kp USAGE>; \
     }
 
