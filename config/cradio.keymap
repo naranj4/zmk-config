@@ -91,7 +91,7 @@
         combo_caps_word {
             timeout-ms = <50>;
             key-positions = <11 12 13>;
-            bindings = <&kp CAPS>;
+            bindings = <&caps_word>;
         };
 
         combo_esc {
