@@ -23,10 +23,10 @@
 #define BTCLR &bt BT_CLR
 #define BTNXT &bt BT_NXT
 #define BTPRV &bt BT_PRV
-#define BT0 &bt BT_SEL 0
-#define BT1 &bt BT_SEL 1
-#define BT2 &bt BT_SEL 2
-#define BT3 &bt BT_SEL 3
+#define BT_0 &bt BT_SEL 0
+#define BT_1 &bt BT_SEL 1
+#define BT_2 &bt BT_SEL 2
+#define BT_3 &bt BT_SEL 3
 #define MNEXT &kp C_NEXT
 #define MPREV &kp C_PREV
 #define MPLAY &kp C_PP
