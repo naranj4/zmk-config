@@ -23,6 +23,10 @@
 #define BTCLR &bt BT_CLR
 #define BTNXT &bt BT_NXT
 #define BTPRV &bt BT_PRV
+#define BT0 &bt BT_SEL 0
+#define BT1 &bt BT_SEL 1
+#define BT2 &bt BT_SEL 2
+#define BT3 &bt BT_SEL 3
 #define MNEXT &kp C_NEXT
 #define MPREV &kp C_PREV
 #define MPLAY &kp C_PP
@@ -48,15 +52,12 @@
 
 // Custom keycodes 
 #define SL_SYM SL(_SYM)
-#define SL_NAV SL(_NAV)
 #define NUM_SPC LTP(_NUM, SPACE)
+#define NUM_TAB LTP(_NUM, TAB)
 #define TMUX_T LLT(_TMUX, T)
-#define TO_BASE TO(_BASE)
-#define TO_NAV TO(_NAV)
-#define TO_NPAD TO(_NUMPAD)
+#define TMUX_Y LLT(_TMUX, Y)
+#define MO_NAV MO(_NAV)
 #define MO_KB MO(_KB)
-#define SK_SFT SK(LSHFT)
-#define MY_SFT &mysft LSHFT A
 
 
 // Homerow mods
@@ -77,9 +78,9 @@
         compatible = "zmk,behavior-macro"; \
         label = LABEL; \
         #binding-cells = <0>; \
-        bindings = \
-            <TMUX_PREFIX>, \
-            <&kp USAGE>; \
+        wait-ms = <50>;
+        tap-ms = <40>;
+        bindings = <TMUX_PREFIX &kp USAGE>; \
     }
 
 
@@ -114,7 +115,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
@@ -150,29 +151,29 @@
 
         base_layer { bindings = <
           //┌─────────┬─────────┬─────────┬─────────┬─────────┐                            ┌─────────┬─────────┬─────────┬─────────┬─────────┐
-             &kp Q     &kp W     &kp E     &kp R     TMUX_T                                 &kp Y     &kp U     &kp I     &kp O     &kp P 
+             &kp Q     &kp W     &kp E     &kp R     TMUX_T                                 TMUX_Y    &kp U     &kp I     &kp O     &kp P 
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              HM_A      HM_S      HM_D      HM_F      &kp G                                  &kp H     HM_J      HM_K      HM_L      HM_SEMI
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              &kp Z     &kp X     &kp C     &kp V     &kp B                                  &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
-                                                 SL_NAV        SK_SFT             NUM_SPC       SL_SYM
+                                                 MO_NAV        NUM_TAB            NUM_SPC       SL_SYM
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
         >; };
 
         sym_layer { bindings = <
           //┌─────────┬─────────┬─────────┬─────────┬─────────┐                            ┌─────────┬─────────┬─────────┬─────────┬─────────┐
-             &kp ESC   &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                              &kp CARET &kp AMPS  &kp STAR  &kp UNDER XXXXXXXXX
+             XXXXXXXXX &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                              &kp CARET &kp AMPS  &kp STAR  &kp UNDER XXXXXXXXX
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              &kp TAB   &kp PLUS  &kp LPAR  &kp RPAR  &kp EQUAL                              &kp PIPE  &kp LBKT  &kp RBKT  &kp MINUS &kp RET
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              &kp TILDE &kp GRAVE &kp SQT   &kp DQT   XXXXXXXXX                              XXXXXXXXX &kp LBRC  &kp RBRC  &kp EXCL  &kp BSLH
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
-                                                 _________     TO_BASE            _________     TO_NPAD
+                                                 _________     _________          _________     _________
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
         >; };
-		
-		nav_layer { bindings = <
+
+        nav_layer { bindings = <
           //┌─────────┬─────────┬─────────┬─────────┬─────────┐                            ┌─────────┬─────────┬─────────┬─────────┬─────────┐
              &kp ESC   XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              &kp HOME  &kp PG_DN &kp PG_UP &kp END   &kp DEL
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
@@ -180,11 +181,11 @@
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
-                                                 TO_NAV        TO_BASE            _________     TO_NPAD
+                                                 _________     _________          _________     XXXXXXXXX
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
         >; };
-		
-		num_layer { bindings = <
+
+        num_layer { bindings = <
           //┌─────────┬─────────┬─────────┬─────────┬─────────┐                            ┌─────────┬─────────┬─────────┬─────────┬─────────┐
              &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                 &kp N6    &kp N7    &kp N8    &kp N9    &kp N0   
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
@@ -192,11 +193,11 @@
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              XXXXXXXXX XXXXXXXXX &kp MINUS &kp PLUS  &kp EQUAL                              XXXXXXXXX XXXXXXXXX _________ _________ _________
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
-                                                 _________     MO_KB              _________     _________
+                                                 MO_KB         _________          _________     MO_KB
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
         >; };
-		
-		numpad_layer { bindings = <
+
+        numpad_layer { bindings = <
           //┌─────────┬─────────┬─────────┬─────────┬─────────┐                            ┌─────────┬─────────┬─────────┬─────────┬─────────┐
              &kp LCTRL &kp LSHFT &kp LALT  &kp LGUI  XXXXXXXXX                              &kp DEL   &kp N7    &kp N8    &kp N9    &kp BSPC
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
@@ -208,7 +209,7 @@
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
         >; };
 
-		tmux_layer { bindings = <
+        tmux_layer { bindings = <
           //┌─────────┬─────────┬─────────┬─────────┬─────────┐                            ┌─────────┬─────────┬─────────┬─────────┬─────────┐
              XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX _________                              &tprv     &tlt      &tgt      &tnxt     XXXXXXXXX
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
@@ -220,16 +221,16 @@
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
         >; };
 
-		kb_layer { bindings = <
+        kb_layer { bindings = <
           //┌─────────┬─────────┬─────────┬─────────┬─────────┐                            ┌─────────┬─────────┬─────────┬─────────┬─────────┐
              BOOT      XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              DBRID     DBRIU     XXXXXXXXX XXXXXXXXX BTCLR
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
-             XXXXXXXXX XXXXXXXXX BTPRV     BTNXT     XXXXXXXXX                              MPREV     MPLAY     XXXXXXXXX MNEXT     XXXXXXXXX
+             BT_0      BT_1      BT_2      BT_3      XXXXXXXXX                              MPREV     MPLAY     XXXXXXXXX MNEXT     XXXXXXXXX
           //├─────────┼─────────┼─────────┼─────────┼─────────┤                            ├─────────┼─────────┼─────────┼─────────┼─────────┤
              &reset    XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                              MVOLD     MVOLU     XXXXXXXXX XXXXXXXXX XXXXXXXXX
           //└─────────┴─────────┴─────────┴─────┬───┴─────┬───┼─────────┐        ┌─────────┼───┬─────┴───┬─────┴─────────┴─────────┴─────────┘
-                                                 XXXXXXXXX     TO_BASE            XXXXXXXXX     XXXXXXXXX
+                                                 XXXXXXXXX     XXXXXXXXX          XXXXXXXXX     XXXXXXXXX
           //                                    └─────────┘   └─────────┘        └─────────┘   └─────────┘
         >; };
-	};
+    };
 };
